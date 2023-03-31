@@ -1,7 +1,12 @@
 const prevButton = document.getElementById("left");
 const nextButton = document.getElementById("right");
+const dots = document.getElementById("dots");
 
-const slides = [
+const nb_dot = sequence.length;
+const img = slide.map(slide => slide.image);
+const tag = slide.map(slide => slide.tagLine);
+
+const slide = [
 	{
 		"image":"slide1.jpg",
 		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
@@ -27,3 +32,9 @@ prevButton.addEventListener("click", () => {
 nextButton.addEventListener("click", () => {
 	alert("right");
 });
+
+document.body.appendChild(banner) = '<div>'
+    + '<img src="' + slide.image + '" />'
+    + '<h2>' + slide.tagLine + '</h2>'
+    + '</div>'
+	
