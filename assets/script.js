@@ -1,3 +1,6 @@
+const prevButton = document.getElementById("left");
+const nextButton = document.getElementById("right");
+
 const slides = [
 	{
 		"image":"slide1.jpg",
@@ -16,3 +19,11 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+prevButton.addEventListener("click", () => {
+	alert("left");
+});
+  
+nextButton.addEventListener("click", () => {
+	alert("right");
+});
