@@ -60,6 +60,7 @@ function ajoutimg() {
 		+ '<p>' + tag[currentTag] + '</p>'
 		//+ '<img class="arrow arrow_left" id="left" src="./assets/images/arrow_left.png" alt="Arrow Left" />'
 		//+ '<img class="arrow arrow_right" id="right" src="./assets/images/arrow_right.png" alt="Arrow Right" />'
+		
 		+ '<div class="dots">' 
 		+ '<div class="dot"> <div>'
 		+ '<div class="dot"> <div>'
