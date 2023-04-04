@@ -1,8 +1,9 @@
+
+const banner = document.getElementById("banner");
+
 const prevButton = document.getElementById("left");
 const nextButton = document.getElementById("right");
-const dots = document.getElementById("dots");
-const banner = document.getElementById("banner");
-	
+
 const slide = [
 	{
 		"image": "slide1.jpg",
@@ -21,16 +22,14 @@ const slide = [
 		"tagLine": "Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
-	
-const nb_dot = slide.length;
+
 const img = slide.map(slide => slide.image);
 const tag = slide.map(slide => slide.tagLine);
-	
+
 let currentImage = 0
 let currentTag = 0
-	
+
 prevButton.addEventListener("click", () => {
-	// alert("left");
 	if (currentImage == 0){
 		currentImage =  3
 		currentTag =  3
@@ -43,7 +42,6 @@ prevButton.addEventListener("click", () => {
 });
 	
 nextButton.addEventListener("click", () => {
-	// alert("right");
 	if (currentImage == 3){
 		currentImage =  0
 		currentTag =  0
@@ -52,16 +50,27 @@ nextButton.addEventListener("click", () => {
 		currentImage = currentImage + 1
 		currentTag = currentTag + 1
 	}
-		
 	ajoutimg()
 });
-	
+
 const node = document.createElement('div')
-	
+
 function ajoutimg() {
 	node.innerHTML = '<img class="banner-img" src="' + "./assets/images/slideshow/" + img[currentImage] + '" alt="Banner Print-it" />'
 		+ '<p>' + tag[currentTag] + '</p>'
+		//+ '<img class="arrow arrow_left" id="left" src="./assets/images/arrow_left.png" alt="Arrow Left" />'
+		//+ '<img class="arrow arrow_right" id="right" src="./assets/images/arrow_right.png" alt="Arrow Right" />'
+		+ '<div class="dots">' 
+		+ '<div class="dot"> <div>'
+		+ '<div class="dot"> <div>'
+		+ '<div class="dot_selected"> <div>'
+		+ '<div class="dot"> <div>'
+		+ '</div>'
 	banner.appendChild(node)
 }
 	
 ajoutimg()
+
+//const dots = document.getElementById("dots");
+//const nb_dot = slide.length;
+//+ for(i=0;i<nb_dot;nb_dot++){ }
