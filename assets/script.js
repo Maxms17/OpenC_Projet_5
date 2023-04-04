@@ -27,23 +27,41 @@ const img = slide.map(slide => slide.image);
 const tag = slide.map(slide => slide.tagLine);
 	
 let currentImage = 0
+let currentTag = 0
 	
 prevButton.addEventListener("click", () => {
-	alert("left");
+	// alert("left");
+	if (currentImage == 0){
+		currentImage =  3
+		currentTag =  3
+	}
+	else {
+		currentImage = currentImage - 1
+		currentTag = currentTag - 1
+	}
+	ajoutimg()
 });
 	
 nextButton.addEventListener("click", () => {
 	// alert("right");
-	currentImage = currentImage + 1
-	test()
+	if (currentImage == 3){
+		currentImage =  0
+		currentTag =  0
+	}
+	else {
+		currentImage = currentImage + 1
+		currentTag = currentTag + 1
+	}
+		
+	ajoutimg()
 });
 	
 const node = document.createElement('div')
 	
-function test() {
-	node.innerHTML = '<img src="' + "./assets/images/slideshow/" + img[currentImage] + '" />'
-		+ '<h2>' + slide.tagLine + '</h2>'
+function ajoutimg() {
+	node.innerHTML = '<img class="banner-img" src="' + "./assets/images/slideshow/" + img[currentImage] + '" alt="Banner Print-it" />'
+		+ '<p>' + tag[currentTag] + '</p>'
 	banner.appendChild(node)
 }
 	
-test()
+ajoutimg()
