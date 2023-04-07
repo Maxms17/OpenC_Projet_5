@@ -1,6 +1,4 @@
 
-const banner = document.getElementById("banner");
-
 const prevButton = document.getElementById("left");
 const nextButton = document.getElementById("right");
 
@@ -38,7 +36,7 @@ prevButton.addEventListener("click", () => {
 		currentImage = currentImage - 1
 		currentTag = currentTag - 1
 	}
-	ajoutimg()
+	changeBanniere()
 });
 	
 nextButton.addEventListener("click", () => {
@@ -50,28 +48,15 @@ nextButton.addEventListener("click", () => {
 		currentImage = currentImage + 1
 		currentTag = currentTag + 1
 	}
-	ajoutimg()
+	changeBanniere()
 });
 
-const node = document.createElement('div')
+const img_banner= document.getElementById("img_banner")
+const text_banner= document.getElementById("text_banner")
 
-function ajoutimg() {
-	node.innerHTML = '<img class="banner-img" src="' + "./assets/images/slideshow/" + img[currentImage] + '" alt="Banner Print-it" />'
-		+ '<p>' + tag[currentTag] + '</p>'
-		//+ '<img class="arrow arrow_left" id="left" src="./assets/images/arrow_left.png" alt="Arrow Left" />'
-		//+ '<img class="arrow arrow_right" id="right" src="./assets/images/arrow_right.png" alt="Arrow Right" />'
-		
-		+ '<div class="dots">' 
-		+ '<div class="dot"> <div>'
-		+ '<div class="dot"> <div>'
-		+ '<div class="dot_selected"> <div>'
-		+ '<div class="dot"> <div>'
-		+ '</div>'
-	banner.appendChild(node)
+function changeBanniere(){
+    //img_banner.src = "' + "./assets/images/slideshow/" + img[currentImage] + '"
+	text_banner.innerHTML = tag[currentTag]
 }
-	
-ajoutimg()
 
-//const dots = document.getElementById("dots");
-//const nb_dot = slide.length;
-//+ for(i=0;i<nb_dot;nb_dot++){ }
+changeBanniere()
