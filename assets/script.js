@@ -1,4 +1,3 @@
-
 const prevButton = document.getElementById("left");
 const nextButton = document.getElementById("right");
 
