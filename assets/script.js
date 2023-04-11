@@ -4,10 +4,8 @@ const nextButton = document.getElementById("right");
 const img_banner= document.getElementById("img_banner")
 const text_banner= document.getElementById("text_banner")
 
-const dot_un= document.getElementById("dot_un")
-const dot_deux= document.getElementById("dot_deux")
-const dot_trois= document.getElementById("dot_trois")
-const dot_quatre= document.getElementById("dot_quatre")
+const dot = document.querySelectorAll(".dot")
+const dots = Array.prototype.slice.call(dot);
 
 const slide = [
 	{
@@ -28,69 +26,42 @@ const slide = [
 	}
 ]
 
-const img = slide.map(slide => slide.image);
-const tag = slide.map(slide => slide.tagLine);
-
-let currentImage = 0
-let currentTag = 0
+let currentSlide = 0
 
 prevButton.addEventListener("click", () => {
-	if (currentImage == 0){
-		currentImage =  3
-		currentTag =  3
+	if (currentSlide == 0){
+		currentSlide =  3
 	}
 	else {
-		currentImage = currentImage - 1
-		currentTag = currentTag - 1
+		currentSlide -= 1
 	}
 	changeBanniere()
-	changeDot()
+	changeDot(currentSlide)
 });
 	
 nextButton.addEventListener("click", () => {
-	if (currentImage == 3){
-		currentImage =  0
-		currentTag =  0
+	if (currentSlide == 3){
+		currentSlide =  0
 	}
 	else {
-		currentImage = currentImage + 1
-		currentTag = currentTag + 1
+		currentSlide += 1
 	}
 	changeBanniere()
-	changeDot()
+	changeDot(currentSlide)
 });
 
 function changeBanniere(){
-    //img_banner.src = "' + "./assets/images/slideshow/" + img[currentImage] + '"
-	text_banner.innerHTML = tag[currentTag]
+    img_banner.src = `./assets/images/slideshow/${slide[currentSlide].image}`
+	text_banner.innerHTML = slide[currentSlide].tagLine
 }
 
-function changeDot(){
-    if (img[currentImage] == 0){
-		dot_un.class = "dot dot_selected"
-		dot_deux.class = "dot"
-		dot_trois.class = "dot"
-		dot_quatre.class = "dot"
-	}
-	else if (img[currentImage] == 1){
-		dot_un.class = "dot"
-		dot_deux.class = "dot dot_selected"
-		dot_trois.class = "dot"
-		dot_quatre.class = "dot"
-	}
-	else if (img[currentImage] == 2){
-		dot_un.class = "dot"
-		dot_deux.class = "dot"
-		dot_trois.class = "dot dot_selected"
-		dot_quatre.class = "dot"
-	}
-	else if (img[currentImage] == 3){
-		dot_un.class = "dot"
-		dot_deux.class = "dot"
-		dot_trois.class = "dot"
-		dot_quatre.class = "dot dot_selected"
-	}
+function changeDot(currentSlide){
+	dots.map((dot, index) => {
+        if (index === currentSlide) {
+            dot.classList.add("dot_selected")
+        }
+        else{ dot.classList.remove("dot_selected") }
+    })
 }
 
-changeBanniere()
-changeDot()
+
