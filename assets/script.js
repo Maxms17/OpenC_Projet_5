@@ -29,7 +29,7 @@ const slide = [
 let currentSlide = 0
 
 prevButton.addEventListener("click", () => {
-	if (currentSlide == 0){
+	if (currentSlide === 0){
 		currentSlide =  3
 	}
 	else {
@@ -40,7 +40,7 @@ prevButton.addEventListener("click", () => {
 });
 	
 nextButton.addEventListener("click", () => {
-	if (currentSlide == 3){
+	if (currentSlide === 3){
 		currentSlide =  0
 	}
 	else {
